@@ -1,5 +1,5 @@
 '''
-Źródła:
+Resources:
     - https://en.wikipedia.org/wiki/Coherent_states
     - https://en.wikipedia.org/wiki/Creation_and_annihilation_operators
     - https://pl.wikipedia.org/wiki/Stan_koherentny
@@ -12,17 +12,17 @@ import sys
 
 sys.setrecursionlimit(10000)
 
-PHI_COUNT = 20  # Ilość funkcji phi (N)
-ALPHA = 1  # Alfa
-T_STEP = 0.05  # Krok czasowy
+PHI_COUNT = 20  # Count of phi functions (N)
+ALPHA = 1  # Alpha
+T_STEP = 0.05  # Time step
 
-x = Symbol("x")  # Zmienna x
-phis = []  # Lista phi
+x = Symbol("x")  # Variable x
+phis = []  # Phi list
 
 
 def fact_sqrt(n):
     '''
-    Funkcja do szybszego obliczania pierwiastka z silni
+    Faster method for calculation square root of factorial
     '''
 
     result = 1
@@ -35,7 +35,7 @@ def fact_sqrt(n):
 
 def normalize_wave_function(phi):
     '''
-    Funkcja do normowania funkcji falowej
+    Norming wave function
     '''
 
     return phi / sqrt(integrate(abs(phi) ** 2, (x, -oo, oo)))
@@ -44,7 +44,7 @@ def normalize_wave_function(phi):
 def calculate_phis():
     global phis
 
-    # Obliczanie phi_0
+    # Calculating phi_0
     last_phi = normalize_wave_function(exp(-0.5 * x**2))
 
     print(f"phi_0 Calculated!")
@@ -52,7 +52,7 @@ def calculate_phis():
     phis.append(last_phi)
 
     for i in range(PHI_COUNT):
-        # Obliczanie pochodnej używając operatora kreacji
+        # Calculating derivative using creation operator
         last_phi = normalize_wave_function(
             simplify(x * last_phi - diff(last_phi)))
 
@@ -65,7 +65,7 @@ def calculate_phis():
 
 def calculate_avg_x(state):
     '''
-    Obliczanie średniej wartości x
+    Calculation of average value of x
     '''
 
     return integrate(x * abs(state) ** 2, (x, -oo, oo))
@@ -73,20 +73,20 @@ def calculate_avg_x(state):
 
 def calculate_coherent(t):
     '''
-    Normalna metoda obliczania stanu koherentnego
+    Normal method for calculation coherent state
     '''
 
     sum = 0
 
-    # Sumowanie phi (i współczynników)
+    # Summing phis (and coefficents)
     for i in range(PHI_COUNT):
-        # Dodawanie do sumy
+        # Add to sum
         sum += simplify(exp(-I * (i + 0.5) * t) *
                         (ALPHA ** i) / fact_sqrt(i) * phis[i])
 
     print(f"Calculating Coherent State (Normal), t={t}...")
 
-    # Końcowy wynik
+    # Final result
     return exp(-0.5 * (abs(ALPHA) ** 2)) * sum
 
 
