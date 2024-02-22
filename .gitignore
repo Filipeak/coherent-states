@@ -1,3 +1,2 @@
-*.png
-*.jpg
-*.pdf
+generated/
+__pycache__/
