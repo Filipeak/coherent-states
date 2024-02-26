@@ -44,14 +44,16 @@ def plot_state(t, phis, x):
         state = calculate_coherent(t, phis)
         graph_re = re(state)
         graph_im = im(state)
-        graph_abs2 = abs(state) ** 2
+        graph_abs2 = graph_re**2 + graph_im**2
 
         tmp_plt = plotting.plot(
             graph_re, graph_im, xlim=[-10, 10], ylim=[-1, 1], show=(not SAVE_IMAGES)
         )
 
         if SAVE_IMAGES:
-            tmp_plt.save(base.get_dir(f"../generated/coherent_re_im/coherent_t_{id}.png"))
+            tmp_plt.save(
+                base.get_dir(f"../generated/coherent_re_im/coherent_t_{id}.png")
+            )
 
         plt.close()
 
@@ -60,7 +62,9 @@ def plot_state(t, phis, x):
         )
 
         if SAVE_IMAGES:
-            tmp_plt.save(base.get_dir(f"../generated/coherent_abs2/coherent_t_{id}.png"))
+            tmp_plt.save(
+                base.get_dir(f"../generated/coherent_abs2/coherent_t_{id}.png")
+            )
 
         plt.close()
     elif MODE == "average":
