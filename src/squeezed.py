@@ -5,7 +5,7 @@ import base
 
 
 SAVE_IMAGES = True  # Save images
-PHI_COUNT = 20  # Count of phi functions (N)
+PHI_COUNT = 30  # Count of phi functions (N)
 ALPHA = 1  # Alpha
 BETA = 1  # Beta
 MAX_T = 4 * pi  # Max time
@@ -34,7 +34,7 @@ def calculate_squeezed(t, phis, x):
     # result = sqrt(1 / cosh(BETA)) * sum
 
     for l in range(4):
-        for k in range(4):
+        for k in range(5):
             for m in range(2 * k):
                 sum += (
                     exp(-I * (2 * k - m + l + 0.5) * t)

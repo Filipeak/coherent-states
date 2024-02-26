@@ -20,7 +20,7 @@ python src/squeezed.py
 Files will be generated in ```generated``` folder.
 
 ## Preview
-#### Coherent Absolute value squared:
+#### Coherent Absolute Value Squared:
 ![](https://github.com/Filipeak/quantum-states/blob/main/assets/coherent_abs2.gif)
 
 #### Coherent Real and Imaginary:
@@ -28,3 +28,9 @@ Files will be generated in ```generated``` folder.
 
 #### Coherent Average:
 ![](https://github.com/Filipeak/quantum-states/blob/main/assets/coherent_avg.gif)
+
+#### Squeezed Absolute Value Squared:
+![](https://github.com/Filipeak/quantum-states/blob/main/assets/squezzed_abs2.gif)
+
+#### Squeezed Real and Imaginary:
+![](https://github.com/Filipeak/quantum-states/blob/main/assets/squezzed_re_im.gif)

@@ -4,7 +4,7 @@ import sys
 import os
 
 
-sys.setrecursionlimit(20000)
+sys.setrecursionlimit(50000)
 
 
 def get_dir(path):
