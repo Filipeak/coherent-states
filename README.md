@@ -5,7 +5,7 @@ Project for Wrocław University of Science and Technology. Goal was to simulate 
 
 ## Features
 - Calculating and plotting coherent states
-- Calculating and plotting squeezed states
+- Calculating and plotting squeezed coherent states
 
 ## Usage
 It's all written in Python so install the requirements:
